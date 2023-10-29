@@ -16,7 +16,7 @@ With security features mostly turned off making this exploit easier.
 
 With no PIE, address of win() address is always `0x00401156`.
 
-The final step is to insert the required amount of bytes and rewrite the RIP register.
+The final step is to insert the required amount of bytes and overwrite the RIP register and get the point.
 
 ``` python
 from pwn import *
